@@ -14,7 +14,12 @@
 // instance from it called `foo`.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+class Foo {
+  constructor () {
+  }
+}
 
+let foo = new Foo();
 
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
@@ -35,7 +40,11 @@ console.assert(foo instanceof Foo);
 // `says` and the value should be `life is ruff`
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
-
+class Dog {
+  constructor () {
+    this.says = "life is ruff"
+  }
+}
 
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
@@ -56,7 +65,15 @@ console.assert(new Dog().says === "life is ruff");
 // create an instance of this called `cat`
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+class Cat {
+  constuctor () {
+  }
+  growl () {
+    return "meow"
+  }
+}
 
+let cat = new Cat();
 
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
@@ -79,6 +96,17 @@ console.assert(cat.growl() === "meow");
 // prototype that is called `squeal` that returns the secret string.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+class KeepSecret {
+  constructor (secret) {
+    this.getSecret = function(secret) {
+      return "My class rocks!";
+    }
+  }
+  squeal() {
+    return this.getSecret();
+  }
+};
+
 
 
 
@@ -108,8 +136,25 @@ console.assert(dontTellNobody.squeal() === mySecret);
 // the secret data.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+class Key {
+  constructor() {
 
+  }
+}
 
+class Safe {
+  constructor (hiddenData, key) {
+    this.key = key;
+    this.getHiddenData = function () {
+      return hiddenData;
+    }
+  }
+  unlock (givenKey) {
+    if (givenKey === this.key) {
+      return this.getHiddenData();
+    }
+  }
+}
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
