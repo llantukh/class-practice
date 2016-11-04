@@ -98,8 +98,13 @@ console.assert(cat.growl() === "meow");
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
 class KeepSecret {
   constructor (secret) {
-    this.getSecret = function(secret) {
-      return "My class rocks!";
+    this.getSecret = function() {
+      return secret;
+
+// I wrote this.getSecret = function(secret){
+//   return "My class rocks!"
+// } this is wrong bc then I cant properly change what the secret is.
+
     }
   }
   squeal() {
@@ -138,19 +143,20 @@ console.assert(dontTellNobody.squeal() === mySecret);
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
 class Key {
   constructor() {
-
   }
 }
 
 class Safe {
-  constructor (hiddenData, key) {
-    this.key = key;
+  constructor (hiddenData, hiddenKey) {
+    this.getKey = function () {
+      return hiddenKey;
+    }
     this.getHiddenData = function () {
       return hiddenData;
     }
   }
   unlock (givenKey) {
-    if (givenKey === this.key) {
+    if (givenKey === this.getKey()) {
       return this.getHiddenData();
     }
   }
